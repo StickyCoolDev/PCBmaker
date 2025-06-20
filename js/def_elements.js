@@ -1,7 +1,7 @@
 var def_elements =
 	[{
 		kind: 'text',
-		item: '文本',
+		item: 'text',
 		render: function(cxt, trans, x1, y1, x2, y2) {
 			cxt.textBaseline = 'bottom';
 			cxt.translate(x1, y1);
@@ -10,7 +10,7 @@ var def_elements =
 		}
 	}, {
 		kind: 'jumper',
-		item: '飞线',
+		item: 'jumper',
 		render: function(cxt, trans, x1, y1, x2, y2) {
 			var length = this.getLength(x1, y1, x2, y2);
 			var head = 6; //线头长度
@@ -45,7 +45,7 @@ var def_elements =
 
 	}, {
 		kind: 'wire',
-		item: '走线',
+		item: 'wire',
 		render: function(cxt, trans, x1, y1, x2, y2) {
 			cxt.lineWidth = 3;
 			cxt.strokeStyle = '#0000ff';
@@ -61,7 +61,7 @@ var def_elements =
 		}
 	}, {
 		kind: 'pin_header',
-		item: '排针',
+		item: 'pin header',
 		render: function(cxt, trans, x1, y1, x2, y2) {
 			//对点做约束
 			if (Math.abs(x2 - x1) > Math.abs(y2 - y1)) {
@@ -102,7 +102,7 @@ var def_elements =
 		}
 	}, {
 		kind: 'socket',
-		item: '排母',
+		item: 'socket',
 		render: function(cxt, trans, x1, y1, x2, y2) {
 			//对点做约束
 			if (Math.abs(x2 - x1) > Math.abs(y2 - y1)) {
@@ -141,10 +141,10 @@ var def_elements =
 		}
 	}, {
 		kind: 'female_header',
-		item: '连接器'
+		item: 'female header'
 	}, {
 		kind: 'simple_ic',
-		item: '单列IC',
+		item: 'simple ic',
 		symbol: 'IC',
 		render: function(cxt, trans, x1, y1, x2, y2) {
 			//对点做约束
@@ -170,7 +170,7 @@ var def_elements =
 		}
 	}, {
 		kind: 'double_ic',
-		item: '双列IC',
+		item: 'double ic',
 		symbol: 'IC',
 		render: function(cxt, trans, x1, y1, x2, y2) {
 			//检查：不存在0行或者0列的ic
@@ -210,7 +210,7 @@ var def_elements =
 		}
 	}, {
 		kind: 'sesitor',
-		item: '电阻',
+		item: 'sesitor',
 		symbol: 'R',
 		render: function(cxt, trans, x1, y1, x2, y2) {
 			var length = this.getLength(x1, y1, x2, y2);
@@ -248,7 +248,7 @@ var def_elements =
 
 	}, {
 		kind: 'ceramics_capacitor',
-		item: '独石电容',
+		item: 'ceramics capacitor',
 		symbol: 'C',
 		render: function(cxt, trans, x1, y1, x2, y2) {
 			var a = 14;
@@ -287,7 +287,7 @@ var def_elements =
 		}
 	}, {
 		kind: 'electrolytic_capacitor',
-		item: '电解电容',
+		item: 'electrolytic capacitor',
 		symbol: 'C',
 		render: function(cxt, trans, x1, y1, x2, y2) {
 			var length = this.getLength(x1, y1, x2, y2);
@@ -325,7 +325,7 @@ var def_elements =
 		}
 	}, {
 		kind: 'diode',
-		item: '二极管',
+		item: 'diode',
 		symbol: 'D',
 		render: function(cxt, trans, x1, y1, x2, y2) {
 			var length = this.getLength(x1, y1, x2, y2);
@@ -399,8 +399,8 @@ var def_elements =
 			this.drawPoint(cxt, x2, y2);
 		}
 	}, {
-		kind: 'bjt',
-		item: '三极管',
+		kind: 'BJT',
+		item: 'BJT',
 		render:function(cxt, trans, x1, y1, x2, y2){
 			//对点做约束
 			if (Math.abs(x2 - x1) > Math.abs(y2 - y1)) {
@@ -441,8 +441,8 @@ var def_elements =
 			cxt.restore();
 		}
 	}, {
-		kind: 'botton',
-		item: '按键',
+		kind: 'button',
+		item: 'button',
 		render:function(cxt, trans, x1, y1, x2, y2){
 			//对点做约束
 			if (Math.abs(x2 - x1) > Math.abs(y2 - y1)) {
@@ -481,7 +481,7 @@ var def_elements =
 		}
 	}, {
 		kind: 'switcher',
-		item: '自锁开关',
+		item: 'switcher',
 		render:function(cxt, trans, x1, y1, x2, y2){
 			//对点做约束
 			if (Math.abs(x2 - x1) > Math.abs(y2 - y1)) {

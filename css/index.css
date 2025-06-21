@@ -1,257 +1,421 @@
+:root {
+  /* --- Global Colors --- */
+  --color-primary: #66b3ff;
+  /* Lighter blue for accent, good contrast on dark */
+  --color-secondary: #9da3ac;
+  /* Softer gray for secondary elements */
+  --color-success: #4ade80;
+  /* Brighter green for success */
+  --color-danger: #ff6b6b;
+  /* More vibrant red for danger */
+  --color-warning: #ffda6a;
+  /* Noticeable yellow for warning */
+  --color-info: #5bc0de;
+  /* Light blue for info */
+  --color-dark: #e0e0e0;
+  /* Light text on dark backgrounds */
+  --color-light: #2c2c2c;
+  /* Dark background elements */
+  --color-white: #1a1a1a;
+  /* Very dark for deep backgrounds */
+  --color-black: #ffffff;
+  /* White for contrast */
+
+  /* --- Text Colors --- */
+  --text-color-default: var(--color-dark);
+  --text-color-light: var(--color-dark);
+  --text-color-muted: #9da3ac;
+  /* Lighter gray for muted text */
+  --text-color-heading: var(--color-white);
+
+  /* --- Background Colors --- */
+  --bg-color-body: #1a1a1a;
+  /* Main application background - very dark */
+  --bg-color-card: #2c2c2c;
+  /* Slightly lighter dark for cards */
+  --bg-color-hover: #3a3a3a;
+  /* Darker hover state */
+  --bg-color-active: #4a4a4a;
+  /* Even darker active state */
+  --bg-color-overlay: rgba(0, 0, 0, 0.7);
+  /* Darker overlay */
+
+  /* --- Border Colors --- */
+  --border-color-default: #444444;
+  --border-color-focus: var(--color-primary);
+  --border-radius-default: 0.25rem;
+  --border-width-default: 1px;
+
+  /* --- Spacing --- */
+  --spacing-xxs: 0.25rem;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
+
+  /* --- Typography --- */
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-size-base: 1rem;
+  --font-size-sm: 0.875rem;
+  --font-size-lg: 1.25rem;
+  --font-size-h1: 2.5rem;
+  --font-size-h2: 2rem;
+  --font-size-h3: 1.75rem;
+  --font-size-h4: 1.5rem;
+  --font-size-h5: 1.25rem;
+  --font-size-h6: 1rem;
+  --line-height-base: 1.5;
+
+  /* --- Shadow / Elevation --- */
+  --box-shadow-sm: 0 .125rem .25rem rgba(0, 0, 0, .2);
+  --box-shadow-md: 0 .5rem 1rem rgba(0, 0, 0, .3);
+  --box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, .4);
+
+  /* --- Z-index --- */
+  --zindex-dropdown: 1000;
+  --zindex-sticky: 1020;
+  --zindex-fixed: 1030;
+  --zindex-modal-backdrop: 1040;
+  --zindex-modal: 1050;
+  --zindex-popover: 1060;
+  --zindex-tooltip: 1070;
+
+  /* --- Specific to PCB Maker --- */
+  /* Canvas Colors */
+  --canvas-bg-color: #1f1f1f;
+  /* Very dark background for the PCB design area */
+  --canvas-grid-color-major: #3a3a3a;
+  /* Slightly lighter grid lines */
+  --canvas-grid-color-minor: #2a2a2a;
+  /* Even lighter minor grid lines */
+  --canvas-selection-color: #00e6e6;
+  /* Brighter cyan for selection */
+  --canvas-highlight-color: #ffe600;
+  /* Brighter yellow for hovering */
+
+  /* Layer Colors (Common PCB Layers) */
+  --layer-top-copper-color: #ff6633;
+  /* Brighter orange-red */
+  --layer-bottom-copper-color: #3399ff;
+  /* Brighter royal blue */
+  --layer-silk-screen-top-color: #e0e0e0;
+  /* Light gray for silk screen */
+  --layer-silk-screen-bottom-color: #e0e0e0;
+  /* Light gray for silk screen */
+  --layer-solder-mask-top-color: #00b300;
+  /* Brighter green for solder mask */
+  --layer-solder-mask-bottom-color: #00b300;
+  /* Brighter green for solder mask */
+  --layer-paste-mask-top-color: #a0a0a0;
+  /* Medium gray for paste mask */
+  --layer-paste-mask-bottom-color: #a0a0a0;
+  /* Medium gray for paste mask */
+  --layer-drill-color: #b366ff;
+  /* Brighter purple */
+  --layer-outline-color: #888888;
+  /* Medium gray for outline */
+
+  /* Component Colors */
+  --component-body-color: #555555;
+  /* Darker gray for component bodies */
+  --component-pad-color: #ffd633;
+  /* Brighter amber for pads */
+  --component-text-color: var(--text-color-default);
+  /* Text on components */
+
+  /* Trace Colors (can vary per selected layer) */
+  --trace-color-default: var(--layer-top-copper-color);
+  /* Default trace color */
+  --trace-width-default: 0.5px;
+
+  /* Drill Hole Colors */
+  --drill-hole-color: #bbbbbb;
+  /* Lighter for drill holes */
+
+  /* Ruler & Measurement Colors */
+  --ruler-color: #888888;
+  --ruler-text-color: var(--color-dark);
+  --measurement-line-color: #ff33ff;
+  /* Brighter magenta for measurement lines */
+  --measurement-text-color: var(--color-dark);
+
+  /* --- UI Elements specific to PCB Maker --- */
+  --sidebar-width: 280px;
+  --toolbar-height: 60px;
+
+  /* Button Variables (example, can be more specific) */
+  --btn-padding-y: 0.375rem;
+  --btn-padding-x: 0.75rem;
+  --btn-font-size: 1rem;
+  --btn-border-radius: var(--border-radius-default);
+
+  /* Input Field Variables */
+  --input-padding-y: 0.375rem;
+  --input-padding-x: 0.75rem;
+  --input-border-color: #555555;
+  --input-bg-color: #333333;
+  --input-text-color: var(--text-color-default);
+  --input-border-radius: var(--border-radius-default);
+}
+
+
 #main {
-	width: 1024px;
-	height: 600px;
-	min-width: 1024px;
-	min-height: 600px;
-	font-family: "Microsoft YaHei" ! important;
-	background-color: #f1f1f1;
+  width: 1024px;
+  height: 600px;
+  min-width: 1024px;
+  min-height: 600px;
+  font-family: "Microsoft YaHei" ! important;
+  background-color: var(--bg-color-body);
 }
 
 .close {
-	position: absolute;
-	left: 10px;
-	top: 10px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
 }
 
 .shadow {
-	box-shadow: 3px 0px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 3px 0px 3px rgba(0, 0, 0, 0.5);
 }
 
 .mask {
-	filter: alpha(opacity=0);
-	opacity: 0;
-	position: absolute;
-	left: 0px;
-	top: 0px;
-	width: 100%;
-	height: 100%;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
 }
 
 input #open {
-	position: relative;
+  position: relative;
 }
 
 #sidebar {
-	float: left;
-	width: 18%;
-	height: 100%;
-	position: relative;
-	background-color: #f5f5dc;
-	border-top-right-radius: 6px;
+  float: left;
+  width: 18%;
+  height: 100%;
+  position: relative;
+  background-color: var(--bg-color-active);
+  border-top-right-radius: 6px;
 }
 
 .sidebar-panel {
-	float: left;
-	width: 84%;
-	height: 100%;
-	overflow: hidden;
-	position: relative;
-	border-top-right-radius: 6px;
-	border-bottom-right-radius: 6px;
+  float: left;
+  width: 84%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
 }
 
 #panel1 {
-	background-color: #0288d1;
+  background-color: var(--bg-color-card);
 }
 
 #panel2 {
-	display: none;
-	background-color: #689f38;
+  display: none;
+  background-color: var(--bg-color-card);
 }
 
 #tabs {
-	float: left;
-	width: 14%;
-	height: 100%;
-	position: relative;
-	margin: 0px;
+  float: left;
+  width: 14%;
+  height: 100%;
+  position: relative;
+  margin: 0px;
 }
 
 .tab img {
-	margin: auto;
-	display: none;
+  margin: auto;
+  display: none;
 }
 
 #meun_elementkind>li>img {
-	float: right;
-	margin-right: 10px;
+  float: right;
+  margin-right: 10px;
 }
 
 .tab {
-	position: relative;
-	width: 100%;
-	height: 9%;
-	margin-top: 40px;
-	margin-bottom: -41px;
-	border-top-right-radius: 10px;
-	border-bottom-right-radius: 10px;
-	box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+  position: relative;
+  width: 100%;
+  height: 9%;
+  margin-top: 40px;
+  margin-bottom: -41px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
 }
 
 #tab1 {
-	background-color: #0288d1;
+  background-color: var(--bg-color-card);
 }
 
 #tab2 {
-	background-color: #689f38;
+  background-color: var(--bg-color-card);
 }
 
 .selected {
-	z-index: 1;
+  z-index: 1;
 }
 
 .sub_item {
-	display: flex;
-	position: relative;
-	font-size: 1em;
-	font-weight: normal;
-	padding: 15px;
-	color: white;
+  display: flex;
+  position: relative;
+  font-size: 1em;
+  font-weight: normal;
+  padding: 15px;
+  color: white;
 }
 
 .sub_item>img {
-	
-	display: none;
-	float: right;
-	transition: transform 0.5s ease-in-out;
+  
+  display: none;
+  float: right;
+  transition: transform 0.5s ease-in-out;
 }
 
 .sub_item_rotate {
-	transform: rotate(-90deg);
+  transform: rotate(-90deg);
 }
 
 .sub_item+ul {
-	display: none;
+  display: none;
 }
 
 .sub_item+ul>li {
-	font-weight: lighter;
-	color: white;
-	padding: 10px 0px 10px 40px;
-	transition: background-color 0.3s ease-in-out, padding-left 0.3s ease-in-out;
+  font-weight: lighter;
+  color: white;
+  padding: 10px 0px 10px 40px;
+  transition: background-color 0.3s ease-in-out, padding-left 0.3s ease-in-out;
 }
 
 #open_file {
-	position: relative;
+  position: relative;
 }
 
 #panel1 .sub_item+ul>li {
-	background-color: #03a9f4;
+  background-color: #03a9f4;
 }
 
 #panel2 .sub_item+ul>li {
-	background-color: #8bc34a;
+  background-color: #8bc34a;
 }
 
 ul {
-	list-style: none;
-	padding-left: 0px;
+  list-style: none;
+  padding-left: 0px;
 }
 
 .sub_item+ul>li:hover {
-	font-weight: lighter;
-	color: white;
-	padding: 10px 0px 10px 20px;
+  font-weight: lighter;
+  color: white;
+  padding: 10px 0px 10px 20px;
 }
 
 #panel1 .sub_item+ul>li:hover {
-	background-color: #81d4fa;
+  background-color: #81d4fa;
 }
 
 #panel2 .sub_item+ul>li:hover {
-	background-color: #c5e1a5;
+  background-color: #c5e1a5;
 }
 
 #panel1 .sub_item+ul>.focus {
-	/*list-style: circle inside;*/
-	border-left: 7px solid #b3e5fc;
+  /*list-style: circle inside;*/
+  border-left: 7px solid #b3e5fc;
 }
 
 #panel2 .sub_item+ul>.focus {
-	/*list-style: circle inside;*/
-	border-left: 7px solid #cdecd8;
+  /*list-style: circle inside;*/
+  border-left: 7px solid #cdecd8;
 }
 
 #pad {
-	overflow: hidden;
-	position: relative;
-	width: 82%;
-	height: 100%;
+  overflow: hidden;
+  position: relative;
+  width: 82%;
+  height: 100%;
 }
 
 .paper {
-	position: absolute;
-	left: 4%;
-	top: 4%;
-	padding: 3em;
-	box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
-	background-color: #fefefe;
+  position: absolute;
+  left: 4%;
+  top: 4%;
+  padding: 3em;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+  background-color: #fefefe;
 }
 
 .paper h1 {
-	margin-top: 0px
+  margin-top: 0px
 }
 
 .paper form {
-	z-index: 2;
-	position: absolute;
-	right: 20px;
-	top: 25px;
-	padding: 20px;
-	display: none;
+  z-index: 2;
+  position: absolute;
+  right: 20px;
+  top: 25px;
+  padding: 20px;
+  display: none;
 }
 
 .paper .canvas_group {
-	position: relative;
+  position: relative;
 }
 
 .paper canvas.overlay {
-	position: absolute;
-	left: 0px;
-	top: 0px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
 }
 
 
 #msg_new_file {
-	display: none;
-	position: absolute;
-	z-index: 10;
-	left: 150px;
-	top: 150px;
-	box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
-	background-color: #fefefe;
-	padding: 40px 20px 20px;
+  display: none;
+  position: absolute;
+  z-index: 10;
+  left: 150px;
+  top: 150px;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+  background-color: #fefefe;
+  padding: 40px 20px 20px;
 }
 
 .header {
-	position: absolute;
-	right: 15px;
-	top: -22px;
-	width: 44px;
-	height: 44px;
-	background-color: #e84e40;
-	border-radius: 22px;
-	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  right: 15px;
+  top: -22px;
+  width: 44px;
+  height: 44px;
+  background-color: #e84e40;
+  border-radius: 22px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .header img {
-	width: 100%;
-	height: 100%
+  width: 100%;
+  height: 100%
 }
 
 #control_pad {
-	position: absolute;
-	right: 10px;
-	bottom: 10px;
-	z-index: 10;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 10;
 }
 
 #control_pad button {
-	margin: 2px;
+  margin: 2px;
 }
 
 /*for perfectscrollbar*/
 .ps-scrollbar-x-rail,
 .ps-scrollbar-y-rail {
-	z-index: 20;
+  z-index: 20;
 }

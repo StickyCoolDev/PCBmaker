@@ -1,151 +1,167 @@
-<!doctype html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>PocketBox</title>
-<meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="./css/index.css"/>
-<link rel="stylesheet" type="text/css" href="./css/component.css"/>
-<link rel="stylesheet" type="text/css" href="./css/perfect-scrollbar.css"/>
-<link rel="stylesheet" type="text/css" href="./css/jquery-ui.css"/>
-<link rel="stylesheet" type="text/css" href="./css/jquery-ui.structure.css"/>
-<link rel="stylesheet" type="text/css" href="./css/jquery-ui.theme.css"/>
-<link rel="stylesheet" href="./css/bootstrap.css"></head>
-<body style="margin:0px;">
-<div id="main">
-	<div id="sidebar" class="shadow">
-		<div id="panel1" class ="sidebar-panel shadow selected">
-			<ul>
-				<li>
-					<div class="sub_item">
-						Document
-						<img src ="./img/item_icon.png" style="align-self: center;"></div>
-					<ul id="meun_file">
-						<li id="new_file">New</li>
-						<li  id="open_file">
-							<input id='files' type="file" class="mask"/>
-							Open
-						</li>
-						<li id='save_file'>Save</li>
-					</ul>
-				</li>
-				<li>
-					<div class="sub_item">
-						Edit
-						<img src ="./img/item_icon.png" ></div>
-					<ul id="meun_edit">
-						<li>前进</li>
-						<li>后退</li>
-						<li>页面设置</li>
-					</ul>
-				</li>
-				<li>
-					<div class="sub_item">
-					 Components
-						<img src ="./img/item_icon.png" ></div>
-					<ul id='meun_elementkind'></ul>
-				</li>
-			</ul>
-		</div>
-		<div id="panel2" class ="sidebar-panel shadow">
-			<ul  id="meun_existelements"></ul>
-		</div>
-		<ul id="tabs">
-			<li id="tab1" class="tab selected">
-				<img src ="./img/tab_settings.png" ></li>
-			<li id="tab2" class="tab">
-				<img src ="./img/tab_elements.png" ></li>
-		</ul>
-	</div>
-	<div id="pad">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PocketBox</title>
 
-		<div id="msg_new_file" class="panel panel-default">
-			<form class="form-horizontal">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-				<div class="form-group">
-					<label for="width" class="col-sm-3 control-label">Width:</label>
-					<div class="col-sm-9">
-						<input type="number" class="form-control" min='0' id="width" name="width" placeholder="width"></div>
-				</div>
-				<div class="form-group">
-					<label for="height" class="col-sm-3 control-label">Height:</label>
-					<div class="col-sm-9">
-						<input type="number" class="form-control" min='0' id="height" name="height" placeholder="height"></div>
-				</div>
-				<div class="form-group">
-					<div class="col-sm-2">
-						<button type="submit" class="btn btn-primary">Create</button>
-					</div>
-				</div>
-			</form>
-		</div>
-			<table id='control_pad'>
-				<tr>
-					<td></td>
-					<td><button id='con-btn-up' class="btn btn-default"><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></button></td>
-				</tr>
-				<tr>
-					<td><button id='con-btn-left' class="btn btn-default"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span></button></td>
-					<td><button id='con-btn-del' class="btn btn-default"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td>
-					<td><button id='con-btn-right' class="btn btn-default"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></button></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><button id='con-btn-down' class="btn btn-default"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></td>
-				</tr>
-			</table>
-	</div>
-</div>
-</body>
-<script type="text/templete" id='paper_template'>
-		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-		<div class="header"><img id='' src ="./img/file.png"></div>
-		<h4><%=name%></h4>
-		<hr>
-		<form class="form-horizontal panel panel-default">
-			<div class="form-group">
-				<label for="width" class="col-sm-3 control-label">Width:</label>
-				<div class="col-sm-9">
-					<input type="number" class="form-control" min='0' id="width" name="width" placeholder="width"  value="<%=width%>"></div>
-			</div>
-			<div class="form-group">
-				<label for="height" class="col-sm-3 control-label">Height:</label>
-				<div class="col-sm-9">
-					<input type="number" class="form-control" min='0' id="height" name="height" placeholder="height" value="<%=height%>"></div>
-			</div>
-			<div class="form-group">
-				<div class="col-sm-2">
-					<button type="submit" class="btn btn-primary">确定</button>
-				</div>
-			</div>
-		</form>
-		<div class="canvas_group">
-			<canvas class="canvas_elements overlay">Canvas not supported</canvas>
-			<canvas class="canvas_bg">Canvas not supported</canvas>
-		</div>
-</script>
-<script type="text/templete" id='sub_item_template'>
-	<li class='<%=kind%>'>
-		<div class="sub_item">
-			<%=item%>
-			<img src ="./img/item_icon.png" ></div>
-		<ul></ul>
-	</li>
-</script>
-<!-- jquery -->
-<script src="./lib/jquery.js"></script>
-<script src="./lib/jquery-ui.js"></script>
-<script src='./lib/perfect-scrollbar.js'></script>
-<script src='./lib/jquery_ex_resize.js'></script>
-<script src='./lib/jquery.form.js'></script>
-<!--bootstrap-->
-<script src="./lib/bootstrap.js"></script>
-<!-- backbone -->
-<script src="./lib/underscore.js"></script>
-<script src="./lib/backbone.js"></script>
-<!-- pcb -->
-<script src="./js/def_elements.js"></script>
-<script src="./js/elementkind.js"></script>
-<!-- view -->
-<script src="./js/view_control.js"></script>
-<!--<script src="./js/PCBmaker.js"></script>
-<script src="./js/index.js"></script>
--->
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/jquery-ui.css">
+    <link rel="stylesheet" href="./css/jquery-ui.structure.css">
+    <link rel="stylesheet" href="./css/jquery-ui.theme.css">
+    <link rel="stylesheet" href="./css/perfect-scrollbar.css">
+    <link rel="stylesheet" href="./css/component.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <div id="main">
+        <aside id="sidebar" class="shadow">
+            <div id="panel1" class="sidebar-panel shadow selected">
+                <nav>
+                    <ul>
+                        <li>
+                            <div class="sub_item">
+                                Document
+                                <img src="./img/item_icon.png" alt="Document icon" style="align-self: center;">
+                            </div>
+                            <ul id="meun_file">
+                                <li id="new_file">New</li>
+                                <li id="open_file">
+                                    <input id='files' type="file" class="mask">
+                                    Open
+                                </li>
+                                <li id='save_file'>Save</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="sub_item">
+                                Edit
+                                <img src="./img/item_icon.png" alt="Edit icon">
+                            </div>
+                            <ul id="meun_edit">
+                                <li>前进</li>
+                                <li>后退</li>
+                                <li>页面设置</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="sub_item">
+                                Components
+                                <img src="./img/item_icon.png" alt="Components icon">
+                            </div>
+                            <ul id='meun_elementkind'></ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div id="panel2" class="sidebar-panel shadow">
+                <ul id="meun_existelements"></ul>
+            </div>
+            <ul id="tabs" role="tablist">
+                <li id="tab1" class="tab selected" role="tab" aria-selected="true">
+                    <img src="./img/tab_settings.png" alt="Settings tab icon">
+                </li>
+                <li id="tab2" class="tab" role="tab" aria-selected="false">
+                    <img src="./img/tab_elements.png" alt="Elements tab icon">
+                </li>
+            </ul>
+        </aside>
+
+        <main id="pad">
+            <div id="msg_new_file" class="panel panel-default">
+                <form class="form-horizontal">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+                    <div class="form-group">
+                        <label for="width" class="col-sm-3 control-label">Width:</label>
+                        <div class="col-sm-9">
+                            <input type="number" class="form-control" min='0' id="width" name="width" placeholder="width">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="height" class="col-sm-3 control-label">Height:</label>
+                        <div class="col-sm-9">
+                            <input type="number" class="form-control" min='0' id="height" name="height" placeholder="height">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            <button type="submit" class="btn btn-primary">Create</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <table id='control_pad'>
+                <tr>
+                    <td></td>
+                    <td><button id='con-btn-up' class="btn btn-default" aria-label="Move up"><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></button></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><button id='con-btn-left' class="btn btn-default" aria-label="Move left"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span></button></td>
+                    <td><button id='con-btn-del' class="btn btn-default" aria-label="Delete"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td>
+                    <td><button id='con-btn-right' class="btn btn-default" aria-label="Move right"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></button></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button id='con-btn-down' class="btn btn-default" aria-label="Move down"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></td>
+                    <td></td>
+                </tr>
+            </table>
+        </main>
+    </div>
+
+    <script type="text/template" id='paper_template'>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+        <div class="header"><img src="./img/file.png" alt="File icon"></div>
+        <h4><%=name%></h4>
+        <hr>
+        <form class="form-horizontal panel panel-default">
+            <div class="form-group">
+                <label for="width" class="col-sm-3 control-label">Width:</label>
+                <div class="col-sm-9">
+                    <input type="number" class="form-control" min='0' id="width" name="width" placeholder="width" value="<%=width%>">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="height" class="col-sm-3 control-label">Height:</label>
+                <div class="col-sm-9">
+                    <input type="number" class="form-control" min='0' id="height" name="height" placeholder="height" value="<%=height%>">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2">
+                    <button type="submit" class="btn btn-primary">确定</button>
+                </div>
+            </div>
+        </form>
+        <div class="canvas_group">
+            <canvas class="canvas_elements overlay">Canvas not supported</canvas>
+            <canvas class="canvas_bg">Canvas not supported</canvas>
+        </div>
+    </script>
+
+    <script type="text/template" id='sub_item_template'>
+        <li class='<%=kind%>'>
+            <div class="sub_item">
+                <%=item%>
+                <img src="./img/item_icon.png" alt="Item icon">
+            </div>
+            <ul></ul>
+        </li>
+    </script>
+
+    <script src="./lib/jquery.js" defer></script>
+    <script src="./lib/jquery-ui.js" defer></script>
+    <script src='./lib/perfect-scrollbar.js' defer></script>
+    <script src='./lib/jquery_ex_resize.js' defer></script>
+    <script src='./lib/jquery.form.js' defer></script>
+    <script src="./lib/bootstrap.js" defer></script>
+    <script src="./lib/underscore.js" defer></script>
+    <script src="./lib/backbone.js" defer></script>
+
+    <script src="./js/def_elements.js" defer></script>
+    <script src="./js/elementkind.js" defer></script>
+    <script src="./js/view_control.js" defer></script>
+    </body>
+</html>
